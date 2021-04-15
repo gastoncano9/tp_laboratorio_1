@@ -10,8 +10,10 @@
 
 
 #include <stdlib.h>
+#include <stdio.h>
 #include "funcionesdecalculo.h"
 #include "pedirnumero.h"
+#include "biblioteca.h"
 
 int main(void) {
 
@@ -31,7 +33,7 @@ int main(void) {
 	int banderaSegundo;
 	int banderaTercero;
 
-
+	setbuf(stdout, NULL);
 
 
 	banderaPrimero = 0;
@@ -39,10 +41,6 @@ int main(void) {
 	banderaTercero = 0;
 
 
-
-
-
-	setbuf(stdout, NULL);
 
 	do
 	{
@@ -69,7 +67,7 @@ int main(void) {
 
 		printf("5.Salir");
 
-		scanf("%d", &opcion);
+		opcion = obtenerRango("\nELIJA UNA OPCION:\n","ERROR ingrese solo numeros:\n", 1, 5);
 
 		switch(opcion)
 		{
