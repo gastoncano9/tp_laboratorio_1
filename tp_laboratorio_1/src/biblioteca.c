@@ -51,7 +51,7 @@ int ValidarFloat(char ingresoTeclado[])
 			for(i=0;i<strlen(ingresoTeclado);i++)
 			{
 				//validar el dato
-				if(ingresoTeclado[i]=='.' || ingresoTeclado[i]==',')
+				if(ingresoTeclado[i]=='.' || ingresoTeclado[i]==','|| ingresoTeclado[i]=='-')
 				{
 					contadorDeSigno++;
 				}

@@ -5,14 +5,7 @@
  *      Author: gaston cano
  */
 #include "funcionesdecalculo.h"
-/**
- * @fn float Sumar(float, float)
- * @brief se suma las 2 variables flotantes ingresadas por el usuario en la funcion "pedirNumero.h".
- *
- * @param numero1 primer numero ingresado por el usuario.
- * @param numero2 segundo numero ingresado por el usuario.
- * @return retorna el valor de la suma.
- */
+
 float Sumar(float numero1, float numero2)
 {
 	float resultado;
@@ -22,15 +15,6 @@ float Sumar(float numero1, float numero2)
 	return resultado;
 }
 
-/**
- * @fn float Division(float, float)
- * @brief se genera la division entre el numero 1 y el numero 2.
- *
- * @param numero1 primer numero ingresado por el usuario.
- * @param numero2 segundo numero ingresado por el usuario.
- *
- * @return retorna el valor de la division de numero1 y numero 2.
- */
 float Division(float numero1, float numero2)
 {
 
@@ -40,14 +24,7 @@ float Division(float numero1, float numero2)
 
 	return resultado;
 }
-/**
- * @fn float Resta(float, float)
- * @brief es la resta de numero1 - numero2.
- *
- * @param numero1 primer numero ingresado por el usuario.
- * @param numero2 segundo numero ingresado por el usuario.
- * @return retorna el valor de la resta de las 2 variables antes mencionadas.
- */
+
 float Resta(float numero1, float numero2)
 {
 	float resultado;
@@ -56,14 +33,7 @@ float Resta(float numero1, float numero2)
 
 	return resultado;
 }
-/**
- * @fn float Multiplicar(float, float)
- * @brief es el producto del numero1 * el numero2
- *
- * @param numero1 primer numero ingresado por el usuario.
- * @param numero2 segundo numero ingresado por el usuario.
- * @return retorna el producto de dicha multiplicacion.
- */
+
 float Multiplicar(float numero1, float numero2)
 {
 	float resultado;
@@ -72,17 +42,7 @@ float Multiplicar(float numero1, float numero2)
 
 	return resultado;
 }
-/**
- * @fn double CalcularFactorial(double)
- * @brief es el factorial del numero1.
- *
- * @param el numero ingresado por el usuario es ingresado a un ciclo for. dicho numero recorrera su antecesor hasta
- * llegar a su mismo valor o su menor. mientras este hace el recorrido en el bucle for, la variable i ira creciendo +1 cada
- * vuelta. es decir pasaria algo asi : (resultado = 1*1 ; resultado = 1*2 resultado = 2*3) mientras se ira multiplicando
- *  hasta el valor ingresado  y se ira guardando en la variable resultado.
- *
- * @return retorna el calculo del factorial del numero ingresado por el usuario.
- */
+
 double CalcularFactorial(double numero1)
 {
 	double resultado;
@@ -99,17 +59,7 @@ double CalcularFactorial(double numero1)
 	return resultado;
 
 }
-/**
- * @fn double CalcularFactorial(double)
- * @brief es el factorial del numero2.
- *
- * @param el numero ingresado por el usuario es ingresado a un ciclo for. dicho numero recorrera su antecesor hasta
- * llegar a su mismo valor o su menor. mientras este hace el recorrido en el bucle for, la variable i ira creciendo +1 cada
- * vuelta. es decir pasaria algo asi : (resultado = 1*1 ; resultado = 1*2 resultado = 2*3) mientras se ira multiplicando
- *  hasta el valor ingresado  y se ira guardando en la variable resultado.
- *
- * @return retorna el calculo del factorial del numero ingresado por el usuario.
- */
+
 double CalcularFactorial2(double numero2)
 {
 	double resultado;
@@ -124,15 +74,7 @@ double CalcularFactorial2(double numero2)
 
 	return resultado;
 }
-/**
- * @fn double ValidacionFactorial(double)
- * @brief se valida que solamente el calculo de un factorial sea con un numero entero y no con con coma o decimales.
- *
- * @param a la variable numero1 que esta declarada como double se la pasa a entero. teniendo asi su valor entero
- * y su valor con decimal. una vez ingresados al condicional if se le resta la parte entera al numero decimal.
- * si retorna 0 es que tiene decimales. sino se muestra el resultado del factorial de un numero entero.
- * @return retorna el resultado del factorial.
- */
+
 double ValidacionFactorial(double numero1)
 {
     int entero;
@@ -148,15 +90,7 @@ double ValidacionFactorial(double numero1)
         return resultadoPrimerNumero;
     }
 }
-/**
- * @fn double ValidacionFactorial(double)
- * @brief se valida que solamente el calculo de un factorial sea con un numero entero y no con con coma o decimales.
- *
- * @param a la variable numero2 que esta declarada como double se la pasa a entero. teniendo asi su valor entero
- * y su valor con decimal. una vez ingresados al condicional if se le resta la parte entera al numero decimal.
- * si retorna 0 es que tiene decimales. sino se muestra el resultado del factorial de un numero entero.
- * @return retorna el resultado del factorial.
- */
+
 double ValidacionFactorial2(double numero2)
 {
     int entero;
