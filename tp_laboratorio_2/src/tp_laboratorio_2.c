@@ -78,22 +78,39 @@ int main(void) {
 			}
 			break;
 		case 4:
-			 criterio = -1;//criterio de ordenamiento
 
 			 opcion = subMenu2();
 
 			 switch(opcion)
 			 {
 			 	 case 1:
-			 		if(sortEmployees(empleados, MAX_STRUCT, criterio)==1)//ordenamiento
-					 {
-						 printf("Lista ordenada\n");
-						 printEmployees(empleados, MAX_STRUCT);
-					 }
-					 else
-					 {
-						 printf("No hay registros de empleados\n");
-					 }
+			 		 criterio = obtenerRango("1-ASCENDENTE\n2-DESCENDENTE\n","ERROR. ingrese solo numeros:\n", 1, 2);
+
+			 		 switch(criterio)
+			 		 {
+			 		  case 1:
+			 			 if(sortEmployees(empleados, MAX_STRUCT, criterio)==1)//ordenamiento
+						 {
+							 printf("Lista ordenada\n");
+							 printEmployees(empleados, MAX_STRUCT);
+						 }
+						 else
+						 {
+							 printf("No hay registros de empleados\n");
+						 }
+			 			 break;
+			 		  case 2:
+			 			 if(sortEmployees(empleados, MAX_STRUCT, criterio)==1)//ordenamiento
+						 {
+							 printf("Lista ordenada\n");
+							 printEmployees(empleados, MAX_STRUCT);
+						 }
+						 else
+						 {
+							 printf("No hay registros de empleados\n");
+						 }
+			 			  break;
+			 		 }
 			 		 break;
 			 	 case 2:
 			 		if(average(empleados,MAX_STRUCT)==1)//promedio

@@ -118,7 +118,7 @@ int sortEmployees(Employee array[], int tam,int criterio)
 
 	switch(criterio)
 	{
-	case -1:
+	case 1:
 		for(i=0;i<tam-1;i++)
 		{
 			for(j=i+1;j<tam;j++)
@@ -148,6 +148,38 @@ int sortEmployees(Employee array[], int tam,int criterio)
 				}
 			}
 		}
+		break;
+	case 2:
+		for(i=0;i<tam-1;i++)
+		{
+			for(j=i+1;j<tam;j++)
+			{
+				if(array[i].isEmpty == FALSE || array[j].isEmpty == FALSE)
+				{
+					retorno = 1;
+
+					if(strcmp(array[i].lastName,array[j].lastName)<0)
+					{
+						aux = array[i];
+						array[i] = array[j];
+						array[j] = aux;
+						retorno = 1;
+					}
+
+					if(strcmp(array[i].lastName,array[j].lastName)==0)
+					{
+						if(array[i].sector<array[j].sector)
+						{
+							aux = array[i];
+							array[i] = array[j];
+							array[j] = aux;
+							retorno = 1;
+						}
+					}
+				}
+			}
+		}
+		break;
 	}
 
 
