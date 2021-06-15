@@ -36,11 +36,8 @@ int parser_EmployeeFromText(FILE* pFile , LinkedList* pArrayListEmployee)
 				 ll_add(pArrayListEmployee, empleado);
 				 exito = 1;
 			 }
-			 if(feof(pFile))
-			 {
-				 break;
-			 }
 		 }
+
 		 fclose(pFile);
 		 exito = 1;
 	}
@@ -58,29 +55,28 @@ int parser_EmployeeFromText(FILE* pFile , LinkedList* pArrayListEmployee)
  */
 int parser_EmployeeFromBinary(FILE* pFile , LinkedList* pArrayListEmployee)
 {
-	Employee empleado;
-	int entro;
-	entro = 0;
+	  Employee* empleado;
+	  int bandera;
+	  int entro;
+	  entro = 0;
 
 
-	if(pFile!=NULL && pArrayListEmployee!=NULL)
-	{
-		fread(&empleado,sizeof(Employee),1,pFile);
+	    if(pFile!=NULL && pArrayListEmployee!=NULL)
+	    {
+	        while(!feof(pFile))
+	        {
+	            empleado = employee_new();
+	            bandera = fread(empleado,sizeof(Employee),1,pFile);
 
-		while(!feof(pFile))
-		{
-			 Employee* pEmpleado = employee_new();
-			 employee_setId(pEmpleado,empleado.id);
-			 employee_setHorasTrabajadas(pEmpleado,empleado.horasTrabajadas);
-			 employee_setNombre(pEmpleado,empleado.nombre);
-			 employee_setSueldo(pEmpleado,empleado.sueldo);
-			 fread(&empleado,sizeof(Employee),1,pFile);
-			 ll_add(pArrayListEmployee,pEmpleado);
-			 entro=1;
-		}
+	            if(bandera==1)
+	            {
+	                ll_add(pArrayListEmployee,empleado);
+	            }
+	        }
 
-		fclose(pFile);
-	}
+	        entro = 1;
+	        fclose(pFile);
+	    }
 
-	return entro;
+	    return entro;
 }

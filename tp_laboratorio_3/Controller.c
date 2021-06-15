@@ -20,10 +20,10 @@ int controller_loadFromText(char* path , LinkedList* pArrayListEmployee)
     int exito;
     exito = 0;
 
+    pFile = fopen(path,"r");
+
     if(path != NULL && pArrayListEmployee != NULL)
     {
-        pFile = fopen(path,"r");
-
         if(pFile!=NULL)
         {
             exito = parser_EmployeeFromText(pFile , pArrayListEmployee);
@@ -42,21 +42,22 @@ int controller_loadFromText(char* path , LinkedList* pArrayListEmployee)
  */
 int controller_loadFromBinary(char* path , LinkedList* pArrayListEmployee)
 {
-    int exito;
-    exito = 0;
-    FILE* pFile;
+	  FILE* pFile;
+	  int exito;
+	  exito = 0;
 
-    if(path != NULL && pArrayListEmployee != NULL)
-    {
-    	pFile = fopen(path,"rb");
 
-    	if(pFile != NULL)
-    	{
-    		exito = parser_EmployeeFromBinary(pFile, pArrayListEmployee);
-    	}
-    }
+	    if(path!=NULL && pArrayListEmployee!=NULL)
+	    {
+	        pFile= fopen(path,"rb");
 
-    return exito;
+	        if(pFile!=NULL)
+	        {
+	            exito = parser_EmployeeFromBinary(pFile , pArrayListEmployee);
+	        }
+	    }
+
+	    return exito;
 }
 
 /** \brief Alta de empleados
@@ -262,7 +263,10 @@ int controller_ListEmployee(LinkedList* pArrayListEmployee)
 
     if(isEmpty != 1)
     {
-		 printf("\nID \t\tNOMBRE \tHORAS \tSUELDO\n\n");
+    	if(len == 0)
+    	{
+    		 printf("\nID \t\tNOMBRE \tHORAS \tSUELDO\n\n");
+    	}
 
         for(i=0;i<len;i++)
         {
@@ -273,6 +277,7 @@ int controller_ListEmployee(LinkedList* pArrayListEmployee)
             employee_getSueldo(auxEmpleado,&auxSueldo);
             printf("%2d %18s %7d %7d\n\n", auxId, auxNombre, auxHorasTrabajadas, auxSueldo);
         }
+
         exito=1;
     }
 
@@ -377,29 +382,33 @@ int controller_saveAsText(char* path , LinkedList* pArrayListEmployee)
 int controller_saveAsBinary(char* path , LinkedList* pArrayListEmployee)
 {
 	FILE* pFile;
-	Employee* empleado;
-    int exito;
-    int len;
-    int i;
-    exito = 0;
+	Employee* Empleado;
+	int len;
+	int exito;
+	int i;
+	exito = 1;
 
-    pFile = fopen(path,"wb");
+	    if(path!=NULL && pArrayListEmployee!=NULL)
+	    {
+	        pFile = fopen(path,"wb");
 
-    if(pFile != NULL && pArrayListEmployee != NULL && path != NULL)
-    {
-    	len = ll_len(pArrayListEmployee);
+	        if(pFile!=NULL)
+	        {
+	            len=ll_len(pArrayListEmployee);
 
-    	for(i=0;i<len;i++)
-    	{
-    		empleado = (Employee*) ll_get(pArrayListEmployee, i);
-    		fwrite(empleado,sizeof(Employee),1,pFile);
-    	}
-    	fclose(pFile);
-    	controller_writeId(pArrayListEmployee, "id.dat");
-    	exito = 1;
-    }
+	            for(i=0;i<len;i++)
+	            {
+	                Empleado = (Employee*)ll_get(pArrayListEmployee,i);
+	                fwrite(Empleado,sizeof(Employee),1,pFile);
+	            }
 
-    return exito;
+	            fclose(pFile);
+	        }
+
+	        exito=1;
+	    }
+
+	 return exito;
 }
 int controller_writeId(LinkedList* pArrayListEmployee, char* path)
 {

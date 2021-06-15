@@ -7,7 +7,7 @@ Employee* employee_new()
 {
 	Employee* listaEmpleados;
 
-	listaEmpleados = (Employee*) calloc(sizeof(Employee),1);
+	listaEmpleados = (Employee*) calloc(1,sizeof(Employee));
 
 	return listaEmpleados;
 }
